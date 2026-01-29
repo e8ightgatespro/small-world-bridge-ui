@@ -1,13 +1,15 @@
 import { FunctionComponent, useState } from "react";
 import { Card } from "../Models/Card";
 import DisplayDecklist from "../Components/DisplayDecklist/DisplayDecklist";
+import DisplayCard from "../Components/DisplayCard/DisplayCard";
+import AddToDeck from "../Components/AddToDeck/AddToDeck";
 
 interface DecklistContainerProps {
-    
+    deck: Card[];
+    setDeck: (deck: Card[]) => void;
 }
 
-const DecklistContainer: FunctionComponent<DecklistContainerProps> = () => {
-  const [deck, setDeck] = useState<Card[]>([]);
+const DecklistContainer: FunctionComponent<DecklistContainerProps> = ({ deck, setDeck }) => {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
   function handleAddCardToDeck(card: Card) {
@@ -34,7 +36,7 @@ const DecklistContainer: FunctionComponent<DecklistContainerProps> = () => {
         onCloseButtonClick={handleRemoveCardFromDeck}
         onRowClick={handleSelectCard}
       />
-      <DisplayCard card={selectedCard} onCloseButtonClick={closeCardDisplay} />
+      <DisplayCard card={selectedCard} closeCard={closeCardDisplay} />
       <AddToDeck onAddCard={handleAddCardToDeck} />
     </div>
   );

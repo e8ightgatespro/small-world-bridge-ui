@@ -1,5 +1,6 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 import { Card } from "../../Models/Card";
+import "./DisplayDecklist.scss";
 
 interface DisplayDecklistProps {
   deck: Card[];
@@ -14,14 +15,14 @@ const DisplayDecklist: FunctionComponent<DisplayDecklistProps> = ({
 }) => {
 
   return (
-    <div>
-      <table>
+    <div> Deck List
+      <table className="DeckListTable">
         <tbody>
           {deck.map((card, index) => (
-            <tr key={index} onClick={() => onRowClick(card)}>
-              <td>{card.name}</td>
+            <tr key={index} className="DeckListRow" onClick={() => onRowClick(card)}>
+              <td className="DeckListCell">{card.name}</td>
               <td>
-                <button onClick={() => onCloseButtonClick(index)}>
+                <button className="CloseButton" aria-label="Close" onClick={() => onCloseButtonClick(index)}>
                   &times;
                 </button>
               </td>

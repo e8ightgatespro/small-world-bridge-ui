@@ -1,0 +1,38 @@
+.DeckListTable {
+    max-height: 50vh;
+    overflow-y: overlay;
+    display: block;
+    border-collapse: collapse;
+    padding-right: 17px;
+    max-width: 500px;
+}
+
+.DeckListRow {
+    text-align: left;
+    width: 500px;
+    border: 1px solid black;
+}
+
+.DeckListCell {
+    color: black;
+    max-width: 400px;
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.DeckListRow:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.CloseButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}

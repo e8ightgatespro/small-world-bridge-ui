@@ -6,10 +6,10 @@ export class Card {
     race: Race;
     attribute: Attribute;
     level: number;
-    atk: number;
-    def: number;
+    atk: number | "?";
+    def: number | "?";
 
-    constructor(name: string, race: Race, attribute: Attribute, level: number, atk: number, def: number) {
+    constructor(name: string, race: Race, attribute: Attribute, level: number, atk: number | "?", def: number | "?") {
         this.name = name;
         this.race = race;
         this.attribute = attribute;
