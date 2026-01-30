@@ -1,7 +1,7 @@
 {
   "name": "small-world-bridge-ui",
   "version": "0.1.0",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://small-world-bridge-backend-2--small-world-bridges-ui.us-east4.hosted.app",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
