@@ -8,10 +8,6 @@
     ],
     "rewrites": [
       {
-        "source": "/api/bridge/getBridgesInDeck",
-        "destination": "https://small-world-bridge-backend-2--small-world-bridges-ui.us-east4.hosted.app/birdge/getBridgesInDeck"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }
