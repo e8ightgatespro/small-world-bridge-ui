@@ -43,17 +43,17 @@ export function DisplayBridges({ deck }: DisplayBridgesProps) {
   const sortedBridges = sortConfig
     ? [...bridges].sort((a, b) => {
         const aVal =
-          sortConfig.key === "cardToAdd"
-            ? a.cardToAdd.name
-            : sortConfig.key === "cardToBanish"
-              ? a.cardToBanish.name
-              : a.cardToReveal.name;
+          sortConfig.key === "cardToAddToHand"
+            ? a.cardToAddToHand.name
+            : sortConfig.key === "cardToRevealInDeck"
+              ? a.cardToRevealInDeck.name
+              : a.cardToRevealInHand.name;
         const bVal =
-          sortConfig.key === "cardToAdd"
-            ? b.cardToAdd.name
-            : sortConfig.key === "cardToBanish"
-              ? b.cardToBanish.name
-              : b.cardToReveal.name;
+          sortConfig.key === "cardToAddToHand"
+            ? b.cardToAddToHand.name
+            : sortConfig.key === "cardToRevealInDeck"
+              ? b.cardToRevealInDeck.name
+              : b.cardToRevealInHand.name;
         return sortConfig.direction === "ascending"
           ? aVal.localeCompare(bVal)
           : bVal.localeCompare(aVal);
@@ -100,8 +100,8 @@ export function DisplayBridges({ deck }: DisplayBridgesProps) {
                   type="text"
                   onChange={(e) => setAddToHandFilter(e.target.value)}
                 ></input>
-                <button onClick={() => handleSort("cardToAdd")}>
-                  {sortConfig?.key === "cardToAdd" &&
+                <button onClick={() => handleSort("cardToAddToHand")}>
+                  {sortConfig?.key === "cardToAddToHand" &&
                   sortConfig.direction === "ascending"
                     ? "▲"
                     : "▼"}
@@ -113,8 +113,8 @@ export function DisplayBridges({ deck }: DisplayBridgesProps) {
                   type="text"
                   onChange={(e) => setBanishFromDeckFilter(e.target.value)}
                 ></input>
-                <button onClick={() => handleSort("cardToBanish")}>
-                  {sortConfig?.key === "cardToBanish" &&
+                <button onClick={() => handleSort("cardToRevealInDeck")}>
+                  {sortConfig?.key === "cardToRevealInDeck" &&
                   sortConfig.direction === "ascending"
                     ? "▲"
                     : "▼"}
@@ -126,8 +126,8 @@ export function DisplayBridges({ deck }: DisplayBridgesProps) {
                   type="text"
                   onChange={(e) => setRevealFromHandFilter(e.target.value)}
                 ></input>
-                <button onClick={() => handleSort("cardToReveal")}>
-                  {sortConfig?.key === "cardToReveal" &&
+                <button onClick={() => handleSort("cardToRevealInHand")}>
+                  {sortConfig?.key === "cardToRevealInHand" &&
                   sortConfig.direction === "ascending"
                     ? "▲"
                     : "▼"}
