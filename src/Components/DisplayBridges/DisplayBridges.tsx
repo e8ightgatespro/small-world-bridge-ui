@@ -63,17 +63,17 @@ export function DisplayBridges({ deck }: DisplayBridgesProps) {
   const filteredAndSortedBridges = sortedBridges !== undefined ? sortedBridges.filter((bridge) => {
     const addToHandMatch =
       addToHandFilter === "" ||
-      bridge.cardToAdd.name
+      bridge.cardToAddToHand.name
         .toLowerCase()
         .includes(addToHandFilter.toLowerCase());
     const banishFromDeckMatch =
       banishFromDeckFilter === "" ||
-      bridge.cardToBanish.name
+      bridge.cardToRevealInDeck.name
         .toLowerCase()
         .includes(banishFromDeckFilter.toLowerCase());
     const revealFromHandMatch =
       revealFromHandFilter === "" ||
-      bridge.cardToReveal.name
+      bridge.cardToRevealInHand.name
         .toLowerCase()
         .includes(revealFromHandFilter.toLowerCase());
     return (addToHandMatch && banishFromDeckMatch && revealFromHandMatch);
