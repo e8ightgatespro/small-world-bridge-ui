@@ -1,11 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.scss';
 import DecklistContainer from './Containers/DecklistContainer';
 import { Card } from './Models/Card';
 import { DisplayBridges } from './Components/DisplayBridges/DisplayBridges';
 
 function App() {
-  const [deck, setDeck] = useState<Card[]>([]);
+  const [deck, setDeck] = useState<Card[]>(() => {
+    const savedDeck = sessionStorage.getItem('deck');
+    return savedDeck ? JSON.parse(savedDeck) : [];
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('deck', JSON.stringify(deck));
+  }, [deck]);
 
 
   return (
