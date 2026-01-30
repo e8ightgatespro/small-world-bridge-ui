@@ -8,6 +8,13 @@
     ],
     "rewrites": [
       {
+        "source": "/bridge/**",
+        "run": {
+          "serviceId": "small-world-bridge-backend-2",
+          "region": "us-east4"
+        }
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }

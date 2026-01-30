@@ -24,7 +24,7 @@ export function DisplayBridges({ deck }: DisplayBridgesProps) {
     setRevealFromHandFilter("");
     setSortConfig(null);
 
-    const res = await fetch("https://small-world-bridge-backend-2--small-world-bridges-ui.us-east4.hosted.app/bridge/getBridgesInDeck", {
+    const res = await fetch("/bridge/getBridgesInDeck", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
