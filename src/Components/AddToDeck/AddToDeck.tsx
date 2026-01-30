@@ -2,6 +2,7 @@ import { Card } from "../../Models/Card";
 import { Attribute } from "../../Models/Enums/Attribute";
 import { Race } from "../../Models/Enums/Race";
 import { FunctionComponent, useState } from "react";
+import "./AddToDeck.scss";
 
 interface AddToDeckProps {
   onAddCard: (card: Card) => void;
@@ -32,8 +33,9 @@ const AddToDeck: FunctionComponent<AddToDeckProps> = ({ onAddCard }) => {
     <div style={{ justifySelf: "center", marginTop: "auto", padding: "10px" }}>
       <div className="fieldGroup">
         <div className="individualField">
-          <label>Card Name:</label>
+          <label htmlFor="cardName">Card Name:</label>
           <input
+            id="cardName"
             type="text"
             placeholder="Card Name"
             value={cardName}
@@ -42,7 +44,8 @@ const AddToDeck: FunctionComponent<AddToDeckProps> = ({ onAddCard }) => {
         </div>
         <div className="individualField">
           <label>Card Type:</label>
-          <select onChange={(e) => setCardType(e.target.value as Race)}>
+          <select defaultValue="" onChange={(e) => setCardType(e.target.value as Race)}>
+            <option value="">Select a Type</option>
             {Object.values(Race).map((race) => (
               <option key={race} value={race}>
                 {race}
@@ -52,9 +55,8 @@ const AddToDeck: FunctionComponent<AddToDeckProps> = ({ onAddCard }) => {
         </div>
         <div className="individualField">
           <label>Card Attribute:</label>
-          <select
-            onChange={(e) => setCardAttribute(e.target.value as Attribute)}
-          >
+          <select defaultValue="" onChange={(e) => setCardAttribute(e.target.value as Attribute)}>
+            <option value="">Select an Attribute</option>
             {Object.values(Attribute).map((attribute) => (
               <option key={attribute} value={attribute}>
                 {attribute}
@@ -62,8 +64,10 @@ const AddToDeck: FunctionComponent<AddToDeckProps> = ({ onAddCard }) => {
             ))}
           </select>
         </div>
-        <div className="individualField">
-          <label>Card Level:</label>
+      </div>
+      <div className="fieldGroup">
+        <div className="individualField" style={{height: "fit-content"}}>
+          <label style={{height: "min-content"}}>Card Level:</label>
           <input
             style={{ maxHeight: "max-content" }}
             type="number"
@@ -88,7 +92,7 @@ const AddToDeck: FunctionComponent<AddToDeckProps> = ({ onAddCard }) => {
               disabled={questionMarkAtk}
             />
           </div>
-          <div className="individualField">
+          <div className="individualField" style={{display: "block"}}>
             <label>Has ? ATK:</label>
             <input
               type="checkbox"
@@ -111,7 +115,7 @@ const AddToDeck: FunctionComponent<AddToDeckProps> = ({ onAddCard }) => {
               disabled={questionMarkDef}
             />
           </div>
-          <div className="individualField">
+          <div className="individualField" style={{display: "block"}}>
             <label>Has ? DEF:</label>
             <input
               type="checkbox"

@@ -1,0 +1,29 @@
+.Bridges {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-height: 90vh;
+    display: flex;
+}
+
+.BridgesTable {
+    max-height: 90vh;
+    overflow-y: overlay;
+    display: block;
+    padding-right: 17px
+}
+
+.BridgesTableHeader {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+.table-cell {
+    border: 1px solid black;
+    padding-right: 10px
+}
+
+.BridgesTableRow {
+    
+}

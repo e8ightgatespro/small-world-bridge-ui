@@ -3,6 +3,7 @@ import { Card } from "../Models/Card";
 import DisplayDecklist from "../Components/DisplayDecklist/DisplayDecklist";
 import DisplayCard from "../Components/DisplayCard/DisplayCard";
 import AddToDeck from "../Components/AddToDeck/AddToDeck";
+import "./DecklistContainer.scss";
 
 interface DecklistContainerProps {
     deck: Card[];
@@ -30,7 +31,7 @@ const DecklistContainer: FunctionComponent<DecklistContainerProps> = ({ deck, se
   }
 
   return (
-    <div>
+    <div className="DeckListContainer">
       <DisplayDecklist
         deck={deck}
         onCloseButtonClick={handleRemoveCardFromDeck}
