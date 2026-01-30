@@ -16,6 +16,9 @@ runConfig:
   #   availability:
   #     - BUILD
   #     - RUNTIME
+env:
+  - variable: PORT
+    value: "4000"
 
   # Grant access to secrets in Cloud Secret Manager.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
